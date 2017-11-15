@@ -1,0 +1,63 @@
+<h2>Empty Bowl</h2><h3>Add Food Donation Details Form</h3>
+          <br>
+            <div class="form-group">
+              <label class="col-sm-2" for="EBDonorCompanyName">Donor Company Name</label>
+              <div class="col-sm-4"><input class="form-control" id="EBDonorCompanyName" name="EBDonorCompanyName" placeholder="Donor Company Name" type="text"></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2" for="ContactPerson">Contact Person</label>
+              <div class="col-sm-4"><input class="form-control" id="ContactPerson" name="ContactPerson" placeholder="Contact Person" type="text"></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2" for="StreetAddress">Address Details</label>
+              <div class="col-sm-4"><input class="form-control" id="StreetAddress" name="StreetAddress" placeholder="Street Address" type="text"></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2"></label>
+              <div class="col-sm-2"><input class="form-control" placeholder="City" name="City" type="text"></div>
+              <div class="col-sm-2"><input class="form-control" placeholder="State" name="State" type="text"></div>
+              <div class="col-sm-2"><input class="form-control" placeholder="Zip" name="Zip" type="text"></div>
+            </div>
+             <div class="form-group">
+              <label class="col-sm-2" for="PhoneNumber">Contact Number</label>
+              <div class="col-sm-4"><input class="form-control" id="PhoneNumber" name="PhoneNumber" placeholder="Enter in the format XXX-XXX-XXXX" type="tel" pattern="^\d{3}-\d{3}-\d{4}$" ></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2" for="Email">Email Address</label>
+              <div class="col-sm-4"><input class="form-control" id="Email" name="Email" placeholder="Email Address" type="email"></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2" for="DoantionDescription">Donation Description</label>
+              <div class="col-sm-4"><input class="form-control" id="DonationDescription" name="DonationDescription" placeholder="Doantion Description" type="text"></div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2" for="EstimateValue">EstimateValue</label>
+              <div class="col-sm-4"><input class="form-control" id="EstimateValue" name="EstimateValue" placeholder="EstimateValue" type="number"></div>
+            </div>
+            <!--<div class="form-group">
+              <label class="col-sm-2" for="ReceivedDate">Received Date</label>
+              <div class="col-sm-4"><input class="form-control" id="datepicker" name="Date" placeholder="Date" type="text"></div>
+            </div>-->
+              <div class="form-group">
+              <label class="col-sm-2" for="DonationType">DonationType</label>
+              <div class="col-sm-4"><input class="form-control" id="DonationType" name="DonationType" placeholder="DonationType" type="text"></div>
+            </div>
+       
+            <div class="form-group">
+              <label class="col-sm-2" for="Comments">Comments</label>
+              <div class="col-sm-4"><input class="form-control" id="Comments" name="Comments" placeholder="Comments" type="text"></div>
+            </div>
+         </div>
+
+        {% buttons %}
+
+        <div class="form-group">
+          <div class="col-sm-6">
+            <button type="submit" class="btn btn-info pull-right">Save Donation</button>
+          </div>
+        </div>
+          {% endbuttons %}
+        </form>
+      </div>
+
+{% endblock %}
