@@ -35,8 +35,10 @@ class DonationsLog(models.Model):
 
 
 class SearchDonor(models.Model):
-    donorID =models.IntegerField(max_length=20,primary_key=True)
+    donorID =models.ForeignKey(Donors, on_delete=models.CASCADE,primary_key=TRUE)
     SearchQuery= models.CharField(max_length=255)
+ 
+
 
 class Donations(models.Model):
     donationID =models.IntegerField(max_length=20,primary_key=True)
@@ -50,11 +52,11 @@ class EBDGFOOD(models.Model):
     RestaurantName=models.CharField(max_length=100)
     
 class EBDGRAFFLE(models.Model):
-    eventID=models.IntegerField(max_length=20,primary_key=True)
+    eventID=models.ForeignKey(FUNDRAISINGEVENTS, on_delete=models.CASCADE,primary_key=TRUE)
     donation=models.CharField(max_length=100)
 
 class EMPTYBOWLRAFFLEAUCTION(models.Model):
-    eventID=models.IntegerField(max_length=20,primary_key=True)
+    eventID=models.ForeignKey(FUNDRAISINGEVENTS, on_delete=models.CASCADE,primary_key=TRUE)
     description=models.CharField(max_length=100)
     item=models.CharField(max_length=100)
     status=models.CharField(max_length=100)
@@ -74,36 +76,36 @@ class FOOD(models.Model):
     totalValue=models.IntegerField(max_length=20)
  
 class FOODCATEGORY(models.Model):
-    donationID=models.IntegerField(max_length=20,primary_key=True)
+    donationID=models.ForeignKey(DONATIONS, on_delete=models.CASCADE,primary_key=TRUE)
     categoryID=models.IntegerField(max_length=20)
     
 class FOODENTRY(models.Model):
-    CategoryID=models.IntegerField(max_length=20)
+    CategoryID=models.ForeignKey(FOODCATEGORY, on_delete=models.CASCADE)
     foodEntryID=models.IntegerField(max_length=20,primary_key=True)
     
 class FOODCATEGORYDESC(models.Model):
-    categoryID=models.IntegerField(max_length=20)
+    categoryID=models.ForeignKey(FOODCATEGORY, on_delete=models.CASCADE,primary_key=TRUE)
     description=models.CharField(max_length=100)
     categoryName=models.CharField(max_length=100)
  
-class FUNDRAISING_EVENTS(models.Model):
+class FUNDRAISINGEVENTS(models.Model):
 eventID=models.IntegerField(max_length=20,primary_key=True)
 estimatedValue=models.IntegerField(max_length=20)
 receivedDate=models.DateField()
 location=models.CharField(max_length=100)
 
 class GOLF(models.Model):
-    eventID=models.IntegerField(max_length=20,primary_key=True)
+    eventID=models.ForeignKey(FUNDRAISINGEVENTS, on_delete=models.CASCADE,primary_key=TRUE)
     dtype=models.CharField(max_length=100)
     
 class ITEMS(models.Model):
-    donationID=models.IntegerField(max_length=20,primary_key=True)
+    donationID=models.ForeignKey(DONATIONS, on_delete=models.CASCADE,primary_key=TRUE)
     description=models.CharField(max_length=100)
     isack_sent=models.BooleanField(default=False)
     approxValue=models.IntegerField(max_length=20)
  
 class MONETARY (models.Model):
-    donationID=models.IntegerField(max_length=20,primary_key=True)
+    donationID=models.ForeignKey(DONATIONS, on_delete=models.CASCADE,primary_key=TRUE)
     amount=models.IntegerField(max_length=20)
     modeOfPayment=models.CharField(max_length=100)
  
