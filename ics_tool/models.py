@@ -27,11 +27,16 @@ class Donors(models.Model):
     State               = models.CharField(max_length=100)
     Zip                 = models.CharField(max_length=100)
     isPurchased_by_ICS  = models.BooleanField(default=False)
+  
+class DonationsLog(models.Model):
+    logID= models.IntegerField(max_length=20,primary_key=True)
+    lastModifidDate=models.DateField()
+    lastChangedBy=models.CharField(max_length=100)
 
 
 class SearchDonor(models.Model):
     donorID =models.IntegerField(max_length=20,primary_key=True)
-    SearchQuery        = models.CharField(max_length=255)
+    SearchQuery= models.CharField(max_length=255)
 
 class Donations(models.Model):
     donationID =models.IntegerField(max_length=20,primary_key=True)
@@ -49,62 +54,65 @@ class EBDGRAFFLE(models.Model):
     donation=models.CharField(max_length=100)
 
 class EMPTYBOWLRAFFLEAUCTION(models.Model):
-    eventID
-    description 
-    item 
-    status
-    receivedDate
+    eventID=models.IntegerField(max_length=20,primary_key=True)
+    description=models.CharField(max_length=100)
+    item=models.CharField(max_length=100)
+    status=models.CharField(max_length=100)
+    receivedDate=models.DateField()
  
 class EMPTYBOWLFOOD(models.Model):
-    EmptyBowlEvent_foodID
-    food_description
-    quantity
-    totalServings
+    EmptyBowlEvent_foodID=models.IntegerField(max_length=20,primary_key=True)
+    food_description=models.CharField(max_length=100)
+    quantity=models.IntegerField(max_length=20)
+    totalServings=models.IntegerField(max_length=20)
     
 class FOOD(models.Model): 
-    foodEntryID
-    foodtype
-    avgCost
-    totalPounds
-    totalValue
+    foodEntryID=models.IntegerField(max_length=20,primary_key=True)
+    foodtype=models.CharField(max_length=100)
+    avgCost=models.IntegerField(max_length=20)
+    totalPounds=models.IntegerField(max_length=20)
+    totalValue=models.IntegerField(max_length=20)
  
 class FOODCATEGORY(models.Model):
-    donationID
-    categoryID
+    donationID=models.IntegerField(max_length=20,primary_key=True)
+    categoryID=models.IntegerField(max_length=20)
     
 class FOODENTRY(models.Model):
-    CategoryID
-    foodEntryID  
+    CategoryID=models.IntegerField(max_length=20)
+    foodEntryID=models.IntegerField(max_length=20,primary_key=True)
     
 class FOODCATEGORYDESC(models.Model):
-    categoryID
-    description
-    categoryName
+    categoryID=models.IntegerField(max_length=20)
+    description=models.CharField(max_length=100)
+    categoryName=models.CharField(max_length=100)
  
 class FUNDRAISING_EVENTS(models.Model):
-eventID
-estimatedValue
-receivedDate
-location
+eventID=models.IntegerField(max_length=20,primary_key=True)
+estimatedValue=models.IntegerField(max_length=20)
+receivedDate=models.DateField()
+location=models.CharField(max_length=100)
 
 class GOLF(models.Model):
-    eventID
-    dtype
+    eventID=models.IntegerField(max_length=20,primary_key=True)
+    dtype=models.CharField(max_length=100)
     
 class ITEMS(models.Model):
-    donationID
-    description
-    isack_sent
-    approxValue
+    donationID=models.IntegerField(max_length=20,primary_key=True)
+    description=models.CharField(max_length=100)
+    isack_sent=models.BooleanField(default=False)
+    approxValue=models.IntegerField(max_length=20)
  
 class MONETARY (models.Model):
-    donationID
-    amount
-    modeOfPayment
+    donationID=models.IntegerField(max_length=20,primary_key=True)
+    amount=models.IntegerField(max_length=20)
+    modeOfPayment=models.CharField(max_length=100)
  
 class Reports(models.Model):
-    reportID
-    filename
-    reportgen_date
+    reportID=models.IntegerField(max_length=20,primary_key=True)
+    filename=models.CharField(max_length=100)
+    reportgen_date=models.DateField()
     
-  
+ class ServiceEvents(models.model)
+service_detailID=models.IntegerField(max_length=20,primary_key=True)
+date_of_service=models.DateField()
+serviceID=models.IntegerField(max_length=20)
