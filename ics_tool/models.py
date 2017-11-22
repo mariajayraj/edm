@@ -63,3 +63,13 @@ class ORGANIZES(models.Model):
 class PARTICIPATE_IN(models.Model):
     eventID=models.ForeignKey(FUNDRAISINGEVENTS, on_delete=models.CASCADE,primary_key=TRUE)
     donorID=models.ForeignKey(DONORS, on_delete=models.CASCADE,primary_key=TRUE)
+
+class SERVICE_EVENT_DETAILS(models.Model):
+    Service_detailID=models.ForeignKey(SERVICEEVENTS, on_delete=models.CASCADE,primary_key=TRUE)
+    Cust_ID=models.ForeignKey(CUSTOMERS, on_delete=models.CASCADE,primary_key=TRUE)
+    Review = models.CharField(max_length=100)
+    Ratings = models.IntegerField(max_length=20)
+    
+ class SERVICE_OFFER(models.Model):
+    ServiceID=models.ForeignKey(SERVICEEVENTS, on_delete=models.CASCADE,primary_key=TRUE)
+    userID=models.ForeignKey(USERS, on_delete=models.CASCADE,primary_key=TRUE)
