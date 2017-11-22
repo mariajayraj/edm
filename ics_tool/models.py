@@ -118,3 +118,43 @@ class Reports(models.Model):
 service_detailID=models.IntegerField(max_length=20,primary_key=True)
 date_of_service=models.DateField()
 serviceID=models.IntegerField(max_length=20)
+
+#Maria
+class COMP_EDBG(models.Model):
+    EDBGEvent_foodID=models.ForeignKey(EDBGFOOD, on_delete=models.CASCADE,primary_key=TRUE)
+    FoodEntryID=models.ForeignKey(FOOD, on_delete=models.CASCADE,primary_key=TRUE)
+ 
+class COMP_EMPTYBOWL(models.Model):
+    EmptyBowlEvent_foodID=models.ForeignKey(EMPTYBOWLFOOD, on_delete=models.CASCADE,primary_key=TRUE)
+    FoodEntryID=models.ForeignKey(FOOD, on_delete=models.CASCADE,primary_key=TRUE)
+   
+class GENERATE(models.Model):
+    userID=models.ForeignKey(USERS, on_delete=models.CASCADE,primary_key=TRUE)
+    reportID=models.ForeignKey(REPORTS, on_delete=models.CASCADE,primary_key=TRUE)
+    
+class INSTRUCT(models.Model):
+    volID=models.ForeignKey(Volunteers, on_delete=models.CASCADE,primary_key=TRUE)
+    service_detailID=models.ForeignKey(SERVICEEVENTS, on_delete=models.CASCADE,primary_key=TRUE)
+    
+class MAINTAIN(models.Model):
+    userID=models.ForeignKey(USERS, on_delete=models.CASCADE,primary_key=TRUE)
+    logID=models.ForeignKey(DonationsLog, on_delete=models.CASCADE,primary_key=TRUE)
+    
+class MAKE_DONATION(models.Model):
+    donorID=models.ForeignKey(DONORS, on_delete=models.CASCADE,primary_key=TRUE)
+    donationID=models.ForeignKey(DONATIONS, on_delete=models.CASCADE,primary_key=TRUE)
+   
+class MANAGE_DONATIONS(models.Model):
+    donationID=models.ForeignKey(DONATIONS, on_delete=models.CASCADE,primary_key=TRUE)
+    userID=models.ForeignKey(USERS, on_delete=models.CASCADE,primary_key=TRUE)
+   
+class ORGANIZES(models.Model):
+    eventID=models.ForeignKey(FUNDRAISINGEVENTS, on_delete=models.CASCADE,primary_key=TRUE)
+    userID=models.ForeignKey(USERS, on_delete=models.CASCADE,primary_key=TRUE)
+    
+class PARTICIPATE_IN(models.Model):
+    eventID=models.ForeignKey(FUNDRAISINGEVENTS, on_delete=models.CASCADE,primary_key=TRUE)
+    donorID=models.ForeignKey(DONORS, on_delete=models.CASCADE,primary_key=TRUE)
+
+   
+
