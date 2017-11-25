@@ -34,3 +34,100 @@ class SearchDonorForm(forms.ModelForm):
     class Meta:
         model = SearchDonor
         fields = '__all__'
+
+class GolfAddDonationsform(forms.ModelForm):
+    CompanyName         = forms.CharField(max_length=100)
+    Title               = forms.CharField(max_length=100)
+    DonorContactPerson  = forms.CharField(max_length=100)
+    StreetAddress       = forms.CharField(max_length=100)
+    City                = forms.CharField(max_length=100)
+    State               = forms.CharField(max_length=100)
+    Zip                 = forms.CharField(max_length=100)
+    PhoneNumber         = forms.CharField(max_length=15)
+    Email               = forms.EmailField(max_length=100)
+    DoantionDescription = forms.CharField(max_length=100)
+    EstimateValue       = forms.CharField(max_length=100)
+    UserContactPerson   = forms.CharField(max_length=100)
+    ReceivedDate        = forms.CharField(max_length=100)
+    DonationType        = forms.CharField(max_length=100)
+    Comments            = forms.CharField(max_length=100,required=False)
+    
+    class Meta:
+        model = Golf
+        fields = '__all__'
+        
+ class EDBGRaffleDonationsform(forms.ModelForm):
+    DonorCompanyName         = forms.CharField(max_length=100)
+    Title               = forms.CharField(max_length=100)
+    StreetAddress       = forms.CharField(max_length=100)
+    City                = forms.CharField(max_length=100)
+    State               = forms.CharField(max_length=100)
+    Zip                 = forms.CharField(max_length=100)
+    PhoneNumber         = forms.CharField(max_length=15)
+    Email               = forms.EmailField(max_length=100)
+    DoantionDescription = forms.CharField(max_length=100)
+    EstimateValue       = forms.CharField(max_length=100)
+    ReceivedDate        = forms.CharField(max_length=100)
+    Comments            = forms.CharField(max_length=100,required=False)
+    
+    class Meta:
+        model = EBDGRAFFLE
+        fields = '__all__'
+        
+    class EDBGFoodDonationsform(forms.ModelForm):
+    EDBGDonorCompanyName    = forms.CharField(max_length=100)
+    DonorType               = forms.CharField(max_length=100)
+    FoodType                = forms.CharField(max_length=100)
+    ServingsperGallon       = forms.CharField(max_length=100)
+    AverageCostperServing   = forms.CharField(max_length=100)
+    TotalValue              = forms.CharField(max_length=100)
+    Comments                = forms.CharField(max_length=100,required=False)
+    
+    class Meta:
+        model = EBDGFOOD
+        fields = '__all__'
+        
+    class EmptyBowlFoodDonationsform(forms.ModelForm):
+    EBDonorCompanyName      = forms.CharField(max_length=100)
+    ContactPerson           = forms.CharField(max_length=100)
+    FoodType                = forms.CharField(max_length=100)
+    NumGallons              = forms.CharField(max_length=100)
+    ServingsperGallon       = forms.CharField(max_length=100)
+    TotalServing            = forms.CharField(max_length=100)
+    AverageCost             = forms.CharField(max_length=100)
+    TotalValue              = forms.CharField(max_length=100)
+    Comments                = forms.CharField(max_length=100,required=False)
+    
+    class Meta:
+        model = EMPTYBOWLFOOD
+        fields = '__all__'
+        
+    class EmptyBowlDonationsform(forms.ModelForm):
+    DonorCompanyName    = forms.CharField(max_length=100)
+    ContactPerson           = forms.CharField(max_length=100)
+    Title               = forms.CharField(max_length=100)
+    StreetAddress       = forms.CharField(max_length=100)
+    City                = forms.CharField(max_length=100)
+    State               = forms.CharField(max_length=100)
+    Zip                 = forms.CharField(max_length=100)
+    PhoneNumber         = forms.CharField(max_length=15)
+    Email               = forms.EmailField(max_length=100)
+    DoantionDescription = forms.CharField(max_length=100)
+    EstimateValue       = forms.CharField(max_length=100)
+    CommitteeContactPerson  = forms.CharField(max_length=100)
+    Salutation          = forms.CharField(max_length=100)
+    Status              = forms.CharField(max_length=100)
+    ReceivedDate        = forms.CharField(max_length=100)
+    DonationFormReceived  = forms.CharField(max_length=100)
+    Comments            = forms.CharField(max_length=100,required=False)
+    
+    class Meta:
+        model = EMPTYBOWLRAFFLEAUCTION
+        fields = '__all__'
+        
+    
+        
+    
+
+    
+    
