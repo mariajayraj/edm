@@ -85,3 +85,104 @@ def search_donor(request):
     print(form.errors)
 
     return render(request,'ics_tool/search_donor.html',{})
+
+
+def add_golf(request):
+    template_name = 'ics_tool/Golf_Add_donations.html'
+
+    if request.method == "GET":
+        return render(request, template_name)
+
+    form = GolfAddDonationsform(request.POST)
+    if form.is_valid():
+       CompanyName          = request.POST.get('CompanyName', '')
+       Title                = request.POST.get('Title ', '')
+       DonorContactPerson   = request.POST.get('DonorContactPerson ', '')
+       StreetAddress        = request.POST.get('StreetAddress', '')
+       City                 = request.POST.get('City', '')
+       State                = request.POST.get('State', '')
+       Zip                  = request.POST.get('Zip', '')
+       PhoneNumber          = request.POST.get('PhoneNumber', '')
+       Email                = request.POST.get('Email', '')
+       DoantionDescription = request.POST.get('DoantionDescription', '')
+    EstimateValue       = request.POST.get('EstimateValue', '')
+    UserContactPerson   = request.POST.get('UserContactPerson', '')
+    ReceivedDate        = request.POST.get('ReceivedDate ', '')
+    DonationType        = request.POST.get('DonationType', '')
+      Comments         = request.POST.get('Comments', '')
+    
+      LoadDonorObj = Donors(CompanyName=CompanyName,Title=Title, DonorContactPerson= DonorContactPerson,
+                            Email=Email,PhoneNumber=PhoneNumber,Comments=Comments,StreetAddress=StreetAddress,City=City,State=State,Zip=Zip,
+                         DoantionDescription=DoantionDescription,  EstimateValue=EstimateValue ,UserContactPerson=UserContactPerson,
+                          ReceivedDate=ReceivedDate, DonationType=DonationType )
+      LoadDonorObj.save()
+
+      return render(request,'ics_tool/donor_success.html',{})
+
+    print(form.errors)
+
+    return render(request,'ics_tool/Golf_Add_donations.html',{})
+
+def add_EDBGRaffle(request):
+    template_name = 'ics_tool/EDBG_Raffle_Donations.html'
+
+    if request.method == "GET":
+        return render(request, template_name)
+
+    form = EDBGRaffleDonationsform(request.POST)
+    if form.is_valid():
+       DonorCompanyName          = request.POST.get('DonorCompanyName', '')
+       Title                = request.POST.get('Title ', '')
+       StreetAddress        = request.POST.get('StreetAddress', '')
+       City                 = request.POST.get('City', '')
+       State                = request.POST.get('State', '')
+       Zip                  = request.POST.get('Zip', '')
+       PhoneNumber          = request.POST.get('PhoneNumber', '')
+       Email                = request.POST.get('Email', '')
+       DoantionDescription = request.POST.get('DoantionDescription', '')
+    EstimateValue       = request.POST.get('EstimateValue', '')
+    ReceivedDate        = request.POST.get('ReceivedDate ', '')
+      Comments         = request.POST.get('Comments', '')
+    
+      LoadDonorObj = Donors(DonorCompanyName=DonorCompanyName,Title=Title, 
+                            Email=Email,PhoneNumber=PhoneNumber,Comments=Comments,StreetAddress=StreetAddress,City=City,State=State,Zip=Zip,
+                         DoantionDescription=DoantionDescription,  EstimateValue=EstimateValue ,
+                          ReceivedDate=ReceivedDate )
+      LoadDonorObj.save()
+
+      return render(request,'ics_tool/donor_success.html',{})
+
+    print(form.errors)
+
+    return render(request,'ics_tool/EDBG_Raffle_Donations.html',{})
+
+
+def add_EDBGFood(request):
+    template_name = 'ics_tool/EDBG_Food_Donations.html'
+
+    if request.method == "GET":
+        return render(request, template_name)
+
+    form = EDBGFoodDonationsform(request.POST)
+    if form.is_valid():
+    EDBGDonorCompanyName          = request.POST.get('EDBGDonorCompanyName', '')
+    DonorType               = request.POST.get(' DonorType ', '')
+    FoodType                = request.POST.get('FoodType', '')
+    ServingsperGallon       = request.POST.get('ServingsperGallon', '')
+    AverageCostperServing   = request.POST.get('AverageCostperServing', '')
+    TotalValue              = request.POST.get('TotalValue ', '')
+      Comments         = request.POST.get('Comments', '')
+    
+      LoadDonorObj = Donors(EDBGDonorCompanyName=EDBGDonorCompanyName,DonorType=DonorType, 
+                            FoodType=FoodType,Comments=Comments,ServingsperGallon=ServingsperGallon,
+                         TotalValue =TotalValue ,  AverageCostperServing=AverageCostperServing,
+                          ReceivedDate=ReceivedDate )
+      LoadDonorObj.save()
+
+      return render(request,'ics_tool/donor_success.html',{})
+
+    print(form.errors)
+
+    return render(request,'ics_tool/EDBG_Food_Donations.html',{})
+
+
